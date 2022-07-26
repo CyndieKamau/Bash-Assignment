@@ -1,4 +1,4 @@
-#### Bash Assignment Repo
+## Bash Assignment Repo
 
 This repo is an assignment on Bash shell scripting. 
 
@@ -12,7 +12,8 @@ Enjoy, and happy scripting!! 🥰🥰
 Don't forget to review the code, and you are more than welcome to share more superior code than the one we wrote.😁😁
 
 
-CONTRIBUTORS:
+
+#### **CONTRIBUTORS:**
 
 SamuelMwasya 👨
 
