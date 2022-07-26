@@ -1,8 +1,60 @@
+##### Question 1
+How many processes are currently running on your system? Use ps and wc, the first line of output of ps is not a process!
+
+
+`$ps wc`
 
 
 
+```
+PID TTY      STAT   TIME COMMAND
+   1492 tty2     Ssl+   0:00 gdm-x-session
+   1494 tty2     Sl+    0:24 Xorg
+   1510 tty2     Sl+    0:00 gnome-session-b
+   5337 pts/0    Ss     0:00 bash
+   6161 pts/0    R+     0:00 ps
+
+```
+
+##### Question 2
+Write a script that upon invocation shows the time and date, lists all logged-in users, and gives the system uptime. 
+The script then saves this information to a logfile.
+
+`$nano logintime.sh`
+
+```
+# This script upon invocation;
+# Shows current time and date
+# Lists all logged-in users
+# Gives system uptime
+# Saves this info to a logfile
 
 
+#Current time and date
+currentDateTime=`date +"%Y-%m-%d %T"`
+
+#All logged in users
+usersLogin=`who`
+
+#System uptime
+systemUptime=`uptime`
+
+
+echo Current Date and Time is: ${currentDateTime}
+echo All logged in users: ${usersLogin}
+echo System Uptime: ${systemUptime}
+
+```
+
+`$bash logintime.sh`
+
+```
+Current Date and Time is: 2022-07-26 11:58:24
+All logged in users: bionfo-lab-cmp1 :0 2022-07-26 10:12 (:0)
+System Uptime: 11:58:24 up 1:49, 1 user, load average: 0.17, 0.33, 0.27
+
+
+```
 ##### 10. Extract only the identifier lines from this file, and write them into a file called "identifiers.txt".
 ```
 grep "^>" test.fa >identifiers.txt
