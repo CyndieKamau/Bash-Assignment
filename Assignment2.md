@@ -4,7 +4,7 @@ How many processes are currently running on your system? Use ps and wc, the firs
 
 `$ps wc`
 
-
+-Output
 
 ```
 PID TTY      STAT   TIME COMMAND
@@ -47,6 +47,8 @@ echo System Uptime: ${systemUptime}
 ```
 
 `$bash logintime.sh`
+
+-Output
 
 ```
 Current Date and Time is: 2022-07-26 11:58:24
@@ -96,6 +98,8 @@ not the full HTML page presenting it.
 
 `$ less test.fa`
 
+-Output
+
 ```
 >NM_001361694.1 Mus musculus nuclear respiratory factor 1 (Nrf1), transcript variant 9, mRNA
 AGGGTTTCTCTGTGTAGCCCTGGCTGTCCTGGAACTCACTCTGTAGACCAGGCTGGCCTTGAACTCAGAAATCTGCCGGC
@@ -131,11 +135,15 @@ How can you count the number of lines in this text file (test.fa)? How do you co
 
 `$ wc -l test.fa `
 
+- Output
+
 `10,281`
 
 - Count no of sequences
 
 `grep -v ">" test.fa | wc -l`
+
+- Output
 
 `10,181`
 
@@ -318,6 +326,7 @@ Write a loop in Bash producing all the integers from 1 to 30, one per line?
 
 `$seq 1 30`
 
+-Output
 
 ```
 1
@@ -357,6 +366,8 @@ Write a loop in Bash producing all the integers from 1 to 30, one per line?
 
 `$touch trial{1..20} ; for f in trial* ; do mv $f $f.data ; done`
 
+-Output
+
 ```
 
 trial10.dat  trial12.dat  trial14.dat  trial16.dat  trial18.dat  trial1.dat   trial2.dat  trial4.dat  trial6.dat  trial8.dat
@@ -372,6 +383,8 @@ Try this with the command "expr 1 / 0", whose purpose is to calculate the intege
 - Output
 
 `expr: division by zero`
+
+-A positive or negative number when divided by zero is a fraction with the zero as denominator.
 
 ##### Question 18
 How can you separately redirect the standard output and the standard error streams into two separate files?
@@ -391,19 +404,27 @@ cat bad-filename.txt
 
 `$ bash script.sh`
 
+- Output
+
 ```
 This is a stdout stream
 cat: bad-filename.txt: No such file or directory
+
 ```
+
 - Here we will redirect the stdout and stderr streams to different files.
 
 `bash script.sh 1> stdout.txt 2> stderr.txt`
 
 `cat stdout.txt`
 
+- Output
+
 `This is a stdout stream`
 
 `cat stderr.txt`
+
+- Output
 
 `cat: bad-filename.txt: No such file or directory`
 
@@ -416,24 +437,40 @@ It's now current_time on this lovely day of current_day." and it exits.
 `nano user-input.sh`
 
 ```
+#This script upon invocation;
+#Asks the user to input their name
+
+#Depending on the time, greets them appropriately;'Good morning/afternoon/evening'
+
+#Shows them the current time and date
+
 echo "What's your name?"
+
+#`read` command converts a user's input to a variable
 
 read name
 
+#This command is used to show only the current hour
+
 h=`date +%H`
 
+#Command greets user appropriately depending on the current hour(variable h)
+
 if [ $h -lt 12 ]; then
+
   echo Good morning $name
+  
 elif [ $h -lt 18 ]; then
+
   echo Good afternoon $name
+  
 else
+
   echo Good evening $name
+  
 fi
 
-
-
-
-
+#
 current_time=`date +"%T"`
 
 current_date=`date +"%Y-%m-%d"`
@@ -448,6 +485,8 @@ echo It is now ${current_time} on this lovely day of ${current_date}.
 
 The user then inputs their name. Depending on the time, it will greet either 'good morning/afternoon/evening'
 
+-Output
+
 ```
 What's your name?
 Cyndie
@@ -456,7 +495,7 @@ It is now 13:53:41 on this lovely day of 2022-07-26.
 
 ```
 
-### Question 20
+##### Question 20
 Suppose your current working directory is /home/icipe/Linux/Exercises/. What is the command that will enable to move to /home/icipe/Fun_stuff/?
 
 `$ cd ../../`
@@ -468,5 +507,7 @@ Suppose your current working directory is /home/icipe/Linux/Exercises/. What is 
 `cd ../../Fun_stuff`
 
 `pwd`
+
+-Output
 
 `/home/icipe/Fun_stuff`
