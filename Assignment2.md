@@ -147,7 +147,8 @@ How can you count the number of lines in this text file (test.fa)? How do you co
 
 `10,181`
 
-##### Question 10. Extract only the identifier lines from this file, and write them into a file called "identifiers.txt".
+##### Question 10. 
+Extract only the identifier lines from this file, and write them into a file called "identifiers.txt".
 
 `$grep "^>" test.fa >identifiers.txt`
 
@@ -174,7 +175,8 @@ How can you count the number of lines in this text file (test.fa)? How do you co
 
 
 
-##### Question 11. How can you process the file you got from question 8 to replace all its uppercase "A" letters into lowercase "a" letters, leaving the rest untouched?
+##### Question 11. 
+How can you process the file you got from question 8 to replace all its uppercase "A" letters into lowercase "a" letters, leaving the rest untouched?
 
 `$grep "A" test.fa | tr [A] [a]`
  
@@ -201,7 +203,8 @@ TaCTTCaGaaTTTTTTaCaTGTTTGCaGaGGTGCaaTCaaaTGGaaTTaaGTCTCTCGaCTTGGaaaGaaaGTTTTGGTa
 
 
 
-##### Question 12. In one command, ask for the display of all identifier lines from the same file test.fa without wrapping the lines, i.e. by having all lines displayed on your screen effectively start with the character '>'.
+##### Question 12. 
+In one command, ask for the display of all identifier lines from the same file test.fa without wrapping the lines, i.e. by having all lines displayed on your screen effectively start with the character '>'.
  
  `$less -S identifiers.txt`
  
@@ -245,7 +248,8 @@ TaCTTCaGaaTTTTTTaCaTGTTTGCaGaGGTGCaaTCaaaTGGaaTTaaGTCTCTCGaCTTGGaaaGaaaGTTTTGGTa
 
 
 
-##### Question 13.  Can you write a very short script (possibly one single commandline) to extract from the same file the species names?
+##### Question 13.  
+Can you write a very short script (possibly one single commandline) to extract from the same file the species names?
 
 
 `$cut -d ' ' -f 2-4 identifiers.txt | cut -d : -f 2 | sed 's/^ *//g' | cut -d ' ' -f 1,2` 
@@ -275,7 +279,8 @@ Peromyscus maniculatus
 
 
 
-##### Question 14. Once this is done, how do you count the species names with their order of multiplicity (i.e. how many sequences belong to Mus musculus, how many to Homo sapiens, etc)?
+##### Question 14. 
+Once this is done, how do you count the species names with their order of multiplicity (i.e. how many sequences belong to Mus musculus, how many to Homo sapiens, etc)?
 
 
 `$cut -d ' ' -f 2-4 identifiers.txt | cut -d : -f 2 | sed 's/^ *//g' | cut -d ' ' -f 1,2 | sort |uniq -c | sort -n` 
@@ -362,7 +367,8 @@ Write a loop in Bash producing all the integers from 1 to 30, one per line?
 ```
 
 
-##### Question 16. Create at once 20 files called "trial1" to "trial20" and *then* rename them all by appending the suffix ".data". Of course, don't issue 20 commands, but just one.
+##### Question 16. 
+Create at once 20 files called "trial1" to "trial20" and *then* rename them all by appending the suffix ".data". Of course, don't issue 20 commands, but just one.
 
 `$touch trial{1..20} ; for f in trial* ; do mv $f $f.data ; done`
 
