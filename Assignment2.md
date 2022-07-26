@@ -56,10 +56,8 @@ System Uptime: 11:58:24 up 1:49, 1 user, load average: 0.17, 0.33, 0.27
 
 ```
 ##### 10. Extract only the identifier lines from this file, and write them into a file called "identifiers.txt".
-```
-grep "^>" test.fa >identifiers.txt
 
-```
+`$grep "^>" test.fa >identifiers.txt`
 
 
 
@@ -73,10 +71,7 @@ grep "^>" test.fa >identifiers.txt
 
 ##### 12. In one command, ask for the display of all identifier lines from the same file test.fa without wrapping the lines, i.e. by having all lines displayed on your screen effectively start with the character '>'.
  
- ``` 
- less -S identifiers.txt
- 
- ```
+ `$less -S identifiers.txt`
 
 ```
 >XM_011723889.1 PREDICTED: Macaca nemestrina nuclear respiratory factor 1 (NRF1), transcript variant X12, mRNA
@@ -118,10 +113,10 @@ grep "^>" test.fa >identifiers.txt
 
 ##### 13.  Can you write a very short script (possibly one single commandline) to extract from the same file the species names?
 
-```
-cut -d ' ' -f 2-4 identifiers.txt | cut -d : -f 2 | sed 's/^ *//g' | cut -d ' ' -f 1,2 
 
-```
+`$cut -d ' ' -f 2-4 identifiers.txt | cut -d : -f 2 | sed 's/^ *//g' | cut -d ' ' -f 1,2` 
+
+
 
 ```
 Mus musculus
@@ -172,10 +167,10 @@ Chinchilla lanigera
 
 ##### 14. Once this is done, how do you count the species names with their order of multiplicity (i.e. how many sequences belong to Mus musculus, how many to Homo sapiens, etc)?
 
-``` 
-cut -d ' ' -f 2-4 identifiers.txt | cut -d : -f 2 | sed 's/^ *//g' | cut -d ' ' -f 1,2 | sort |uniq -c | sort -n 
 
-```
+`$cut -d ' ' -f 2-4 identifiers.txt | cut -d : -f 2 | sed 's/^ *//g' | cut -d ' ' -f 1,2 | sort |uniq -c | sort -n` 
+
+
 ```
 1 Castor canadensis
       1 Cebus capucinus
@@ -217,9 +212,8 @@ cut -d ' ' -f 2-4 identifiers.txt | cut -d : -f 2 | sed 's/^ *//g' | cut -d ' ' 
 
 ##### 16. Create at once 20 files called "trial1" to "trial20" and *then* rename them all by appending the suffix ".data". Of course, don't issue 20 commands, but just one.
 
-``` 
-touch trial{1..20} ; for f in trial* ; do mv $f $f.data ; done
+`$touch trial{1..20} ; for f in trial* ; do mv $f $f.data ; done`
 
-```
+
 
 
