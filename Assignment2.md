@@ -139,11 +139,13 @@ How can you count the number of lines in this text file (test.fa)? How do you co
 
 `10,181`
 
-##### 10. Extract only the identifier lines from this file, and write them into a file called "identifiers.txt".
+##### Question 10. Extract only the identifier lines from this file, and write them into a file called "identifiers.txt".
 
 `$grep "^>" test.fa >identifiers.txt`
 
 `less identifiers.txt`
+
+-Output
 
 ```
 >NM_001361694.1 Mus musculus nuclear respiratory factor 1 (Nrf1), transcript variant 9, mRNA
@@ -164,15 +166,38 @@ How can you count the number of lines in this text file (test.fa)? How do you co
 
 
 
-##### 11. How can you process the file you got from question 8 to replace all its uppercase "A" letters into lowercase "a" letters, leaving the rest untouched?
+##### Question 11. How can you process the file you got from question 8 to replace all its uppercase "A" letters into lowercase "a" letters, leaving the rest untouched?
+
+`$grep "A" test.fa | tr [A] [a]`
+ 
+ - Output
+ 
+ ```
+ CaGCTCTGGCaGaaCaCGCCCCTGCGCCaCaGGaGGTTaaTTCaGaaCTGCCaCCTCTCaCCaTCGaTGGGaTTCCaGTC
+TCTGTGGaCaaaaTGaCCCaGGCTCaGCTTCGGGCaTTTaTCCCaGaGaTGCTCaaGTaTTCCaCaGGTCGaGGGaaaCC
+aGGCTGGGGGaaaGaaaGCTGCaaGCCTaTCTGGTGGCCaGaaGaCaTCCCaTGGGCTaaTGTCCGCaGTGaTGTCCGCa
+CaGaaGaGCaaaaaCaaaGGGTTTCaTGGaCCCaGGCaTTaCGGaCCaTaGTTaaaaaTTGTTaTaaGCaaCaTGGGCGG
+GaGGaTCTTTTaTaTGCTTTTGaaGaTCaGCaaaCaCaaaCTCaGGCCaCCaCCaCaCaCaGTaTaGCTCaTCTCGTaCC
+aTCaCaGaCCGTaGTaCaGaCCTTCaGCaaCCCTGaTGGCaCCGTGTCGCTCaTCCaGGTTGGTaCaGGGGCaaCaGTaG
+CCaCaTTGGCTGaTGCTTCaGaaCTGCCaaCCaCaGTCaCTGTTGCCCaaGTGaaTTaCTCTGCTGTGGCTGaTGGaGaG
+GTGGaaCaaaaTTGGGCCaCGTTaCaGGGCGGTGaaaTGaCCaTCCaGaCGaCGCaaGCaTCaGaGGCCaCCCaGGCGGT
+aGCaTCaCTGGCaGaaGCCGCaGTGGCaGCTTCTCaGGaGaTGCaaCaGGGaGCCaCTGTCaCCaTGGCCCTCaaCaGTG
+aaGCTGCCGCCCaTGCTGTCGCCaCTCTGGCTGaaGCCaCCTTaCaaGGTGGGGGaCaGaTaGTCCTGTCTGGGGaaaCC
+GCaGCaGCCGTCGGaGCaCTTaCTGGaGTCCaaGaTGCTaaTGGCCTGGTCCaGaTTCCTGTGaGCaTGTaCCaGaCTGT
+GGTaaCCaGCCTCGCCCaGGGCaaCGGGCCGGTGCaGGTGGCCaTGGCCCCaGTGaCCaCCaGGaTaTCGGaCaGCGCaG
+TCaCCaTGGaTGGCCaGGCTGTGGaGGTGGTGaCCTTGGaaCaGTaGCGTGGaGCTCTaTCaTGGCaGCGTTTTTTaGTC
+TaCTTCaGaaTTTTTTaCaTGTTTGCaGaGGTGCaaTCaaaTGGaaTTaaGTCTCTCGaCTTGGaaaGaaaGTTTTGGTa
+......
+
+```
 
 
 
-
-
-##### 12. In one command, ask for the display of all identifier lines from the same file test.fa without wrapping the lines, i.e. by having all lines displayed on your screen effectively start with the character '>'.
+##### Question 12. In one command, ask for the display of all identifier lines from the same file test.fa without wrapping the lines, i.e. by having all lines displayed on your screen effectively start with the character '>'.
  
  `$less -S identifiers.txt`
+ 
+ - Output
 
 ```
 >XM_011723889.1 PREDICTED: Macaca nemestrina nuclear respiratory factor 1 (NRF1), transcript variant X12, mRNA
@@ -212,12 +237,12 @@ How can you count the number of lines in this text file (test.fa)? How do you co
 
 
 
-##### 13.  Can you write a very short script (possibly one single commandline) to extract from the same file the species names?
+##### Question 13.  Can you write a very short script (possibly one single commandline) to extract from the same file the species names?
 
 
 `$cut -d ' ' -f 2-4 identifiers.txt | cut -d : -f 2 | sed 's/^ *//g' | cut -d ' ' -f 1,2` 
 
-
+- Output
 
 ```
 Mus musculus
@@ -236,41 +261,18 @@ Mus musculus
 Mus pahari
 Rattus norvegicus
 Peromyscus maniculatus
-Mus musculus
-Mus musculus
-Mus musculus
-Mus musculus
-Mus pahari
-Cricetulus griseus
-Mesocricetus auratus
-Rattus norvegicus
-Nannospalax galili
-Nannospalax galili
-Peromyscus maniculatus
-Mus musculus
-Cricetulus griseus
-Castor canadensis
-Marmota marmota
-Microtus ochrogaster
-Ictidomys tridecemlineatus
-Heterocephalus glaber
-Heterocephalus glaber
-Heterocephalus glaber
-Mus musculus
-Mus musculus
-Ictidomys tridecemlineatus
-Chinchilla lanigera
-Chinchilla lanigera
+....
 
 ````
 
 
 
-##### 14. Once this is done, how do you count the species names with their order of multiplicity (i.e. how many sequences belong to Mus musculus, how many to Homo sapiens, etc)?
+##### Question 14. Once this is done, how do you count the species names with their order of multiplicity (i.e. how many sequences belong to Mus musculus, how many to Homo sapiens, etc)?
 
 
 `$cut -d ' ' -f 2-4 identifiers.txt | cut -d : -f 2 | sed 's/^ *//g' | cut -d ' ' -f 1,2 | sort |uniq -c | sort -n` 
 
+-Output
 
 ```
 1 Castor canadensis
@@ -311,10 +313,160 @@ Chinchilla lanigera
      24 Mus musculus
 ```
 
-##### 16. Create at once 20 files called "trial1" to "trial20" and *then* rename them all by appending the suffix ".data". Of course, don't issue 20 commands, but just one.
+##### Question 15
+Write a loop in Bash producing all the integers from 1 to 30, one per line?
+
+`$seq 1 30`
+
+
+```
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+```
+
+
+##### Question 16. Create at once 20 files called "trial1" to "trial20" and *then* rename them all by appending the suffix ".data". Of course, don't issue 20 commands, but just one.
 
 `$touch trial{1..20} ; for f in trial* ; do mv $f $f.data ; done`
 
+```
+
+trial10.dat  trial12.dat  trial14.dat  trial16.dat  trial18.dat  trial1.dat   trial2.dat  trial4.dat  trial6.dat  trial8.dat
+trial11.dat  trial13.dat  trial15.dat  trial17.dat  trial19.dat  trial20.dat  trial3.dat  trial5.dat  trial7.dat  trial9.dat
+
+```
+
+##### Question 17
+Try this with the command "expr 1 / 0", whose purpose is to calculate the integer result of 1 divided by 0. What happens? Why?
+
+`expr 1 / 0`
+
+- Output
+
+`expr: division by zero`
+
+##### Question 18
+How can you separately redirect the standard output and the standard error streams into two separate files?
+
+`$ nano script.sh`
+
+```
+#This script is used to show a standard output (stdout) and standard error (stderr) stream
+
+# stdout stream
+echo "This is a stdout stream"
+
+#This command will output a stderr stream
+cat bad-filename.txt
+
+```
+
+`$ bash script.sh`
+
+```
+This is a stdout stream
+cat: bad-filename.txt: No such file or directory
+```
+- Here we will redirect the stdout and stderr streams to different files.
+
+`bash script.sh 1> stdout.txt 2> stderr.txt`
+
+`cat stdout.txt`
+
+`This is a stdout stream`
+
+`cat stderr.txt`
+
+`cat: bad-filename.txt: No such file or directory`
+
+##### Question 19
+Write a Bash script asking "What's your name?", then waiting for you (the user) to enter you name and press Enter, 
+following what the program displays some text according to the following pattern:
+"Good morning/day/evening, your_name!
+It's now current_time on this lovely day of current_day." and it exits.
+
+`nano user-input.sh`
+
+```
+echo "What's your name?"
+
+read name
+
+h=`date +%H`
+
+if [ $h -lt 12 ]; then
+  echo Good morning $name
+elif [ $h -lt 18 ]; then
+  echo Good afternoon $name
+else
+  echo Good evening $name
+fi
 
 
 
+
+
+current_time=`date +"%T"`
+
+current_date=`date +"%Y-%m-%d"`
+
+echo It is now ${current_time} on this lovely day of ${current_date}.
+
+```
+
+`$ bash user-input.sh`
+
+`What is your name?`
+
+The user then inputs their name. Depending on the time, it will greet either 'good morning/afternoon/evening'
+
+```
+What's your name?
+Cyndie
+Good afternoon Cyndie
+It is now 13:53:41 on this lovely day of 2022-07-26.
+
+```
+
+### Question 20
+Suppose your current working directory is /home/icipe/Linux/Exercises/. What is the command that will enable to move to /home/icipe/Fun_stuff/?
+
+`$ cd ../../`
+
+`mkdir Fun_stuff`
+
+`cd Linux/Exercises`
+
+`cd ../../Fun_stuff`
+
+`pwd`
+
+`/home/icipe/Fun_stuff`
