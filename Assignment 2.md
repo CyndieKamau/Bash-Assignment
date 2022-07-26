@@ -118,7 +118,7 @@ Chinchilla lanigera
 
 
 
-##### 14. nce this is done, how do you count the species names with their order of multiplicity (i.e. how many sequences belong to Mus musculus, how many to Homo sapiens, etc)?
+##### 14. Once this is done, how do you count the species names with their order of multiplicity (i.e. how many sequences belong to Mus musculus, how many to Homo sapiens, etc)?
 
 ``` 
 cut -d ' ' -f 2-4 identifiers.txt | cut -d : -f 2 | sed 's/^ *//g' | cut -d ' ' -f 1,2 | sort |uniq -c | sort -n 
@@ -166,7 +166,7 @@ cut -d ' ' -f 2-4 identifiers.txt | cut -d : -f 2 | sed 's/^ *//g' | cut -d ' ' 
 ##### 16. Create at once 20 files called "trial1" to "trial20" and *then* rename them all by appending the suffix ".data". Of course, don't issue 20 commands, but just one.
 
 ``` 
-touch $(seq -f "trial%g.data" 1 20)
+touch trial{1..20} ; for f in trial* ; do mv $f $f.data ; done
 
 ```
 
