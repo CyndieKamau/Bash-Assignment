@@ -3,13 +3,17 @@
 
 
 
+##### 10. Extract only the identifier lines from this file, and write them into a file called "identifiers.txt".
+```
+grep "^>" test.fa >identifiers.txt
+
+```
 
 
 
 
 
-
-
+##### 11. How can you process the file you got from question 8 to replace all its uppercase "A" letters into lowercase "a" letters, leaving the rest untouched?
 
 
 
