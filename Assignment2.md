@@ -55,6 +55,47 @@ System Uptime: 11:58:24 up 1:49, 1 user, load average: 0.17, 0.33, 0.27
 
 
 ```
+
+##### Question 3
+Which command would you use in order to create an empty file in the current directory, let's say empty.txt?
+
+`$touch empty.txt`
+
+##### Question 4
+You are in /home/icipe/  suppose this directory is empty. How do you create in only one command the whole path /home/icipe/Work/mini-project/RNA-Seq/?
+
+`$mkdir -p Work/mini-project/RNA-Seq`
+
+##### Question 5
+Suppose your current working directory contains a file named seqs.txt. How do you rename this file into sequences.fasta? 
+Does this have any effect on the content of the file, and if yes, what does it do?
+
+`mv seqs.txt sequences.fasta`
+
+There was no change in the file contents.
+
+##### Question 6
+How can you create in a single command a file containing the contents "Hello, world!" and named universal_greeting.txt?
+
+`$echo "Hello, world!" > universal_greeting.txt`
+
+
+##### Question 7
+What about creating the same file but with filename "universal greeting.txt" (the filename contains a space)?
+
+`$echo "Hello, world!" > universal\ greeting.txt`
+
+## Question 8
+How can you use the commandline (on whichever machine you are now, that is connected to the internet) to download directly the 
+file you can see on https://github.com/Fnyasimi/my-first-repo/blob/main/directory1/test.fa ? Be careful, you need to get the raw text file itself, 
+not the full HTML page presenting it.
+
+- Add '?raw=true' to https://github.com/Fnyasimi/my-first-repo/blob/main/directory1/test.fa
+
+`$wget https://github.com/Fnyasimi/my-first-repo/blob/main/directory1/test.fa?raw=true`
+
+
+
 ##### 10. Extract only the identifier lines from this file, and write them into a file called "identifiers.txt".
 
 `$grep "^>" test.fa >identifiers.txt`
